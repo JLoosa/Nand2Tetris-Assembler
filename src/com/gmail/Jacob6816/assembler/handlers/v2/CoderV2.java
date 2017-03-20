@@ -67,14 +67,12 @@ public class CoderV2 extends AbstractCoder {
 			builder.append(getComp(comp));
 			builder.append(getDest(destination));
 			builder.append(getJump(jump));
-			System.out.println();
 		}
 		return builder.toString();
 	}
 
 	@Override
 	public String getDest(String mnemonic) {
-		System.out.print(mnemonic + "=" + destinations.getOrDefault(mnemonic, "000").toString() + ", ");
 		return destinations.getOrDefault(mnemonic, "000").toString();
 	}
 
@@ -85,13 +83,11 @@ public class CoderV2 extends AbstractCoder {
 			start = '1';
 			mnemonic = mnemonic.replace('M', 'A');
 		}
-		System.out.print(mnemonic + "=" + start + computations.getOrDefault(mnemonic, "000000").toString() + ", ");
 		return start + computations.getOrDefault(mnemonic, "000000").toString();
 	}
 
 	@Override
 	public String getJump(String mnemonic) {
-		System.out.print(mnemonic + "=" + jumps.getOrDefault(mnemonic, "000").toString() + ", ");
 		return jumps.getOrDefault(mnemonic, "000").toString();
 	}
 

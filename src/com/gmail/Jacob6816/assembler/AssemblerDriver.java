@@ -45,8 +45,6 @@ public class AssemblerDriver {
 			String next = asm.nextLine().toUpperCase().replaceAll("\\s", "");
 			if (next.contains("/")) next = next.substring(0, next.indexOf("/"));
 			if (next.length() == 0) continue;
-
-			System.out.println(next);
 			if (next.startsWith("(")) {
 				symbolTable.addEntryToNextFree(next.substring(1, next.length() - 1));
 				continue;
@@ -66,17 +64,14 @@ public class AssemblerDriver {
 		asmFile = null;
 
 		// Handle the information processing
-		System.out.println("BEGINNING PROCESSING");
 		while (dataParser.hasMoreCommands()) {
 			dataParser.advance();
 			String codedOutput = dataCoder.decode(dataParser.getCommandType(), dataParser.getSymbol(), dataParser.getDest(), dataParser.getComp(), dataParser.getJump());
 			writer.println(codedOutput);
-			System.out.println(codedOutput);
 		}
 
 		writer.close();
 		writer = null;
-		System.out.println(output.getAbsolutePath());
 		output = null;
 	}
 

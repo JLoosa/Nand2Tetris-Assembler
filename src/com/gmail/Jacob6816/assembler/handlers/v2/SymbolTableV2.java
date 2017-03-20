@@ -30,7 +30,6 @@ public class SymbolTableV2 extends AbstractSymbolTable {
 		entry = entry.toUpperCase();
 		if (mapping.containsKey(entry)) return false;
 		mapping.put(entry, value);
-		System.out.println("[ST] Index " + value + " set to: " + entry);
 		return true;
 	}
 
